@@ -7,12 +7,21 @@ import {  useParams,useNavigate  } from 'react-router-dom';
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import Popover from '@mui/material/Popover';
 
 import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import DisplayContext from './Context'
 import { SearchSharp } from '@mui/icons-material'
 
 const  Home = (props) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const [isGrid,setisGrid] = useState(true);
   const [searchQuery,setSearchQuery] = useState('')
@@ -26,7 +35,8 @@ const  Home = (props) => {
   useEffect(() => {
     targetRef.current.value = "";
   }, [showSearchInput]);
-
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
 
 
@@ -113,12 +123,27 @@ const  Home = (props) => {
         }}
         />
         </div>
-    <button className='filter'>
+    <button className='filter' onClick={handleClick}>
      <FilterListRoundedIcon
-     sx={{marginRight:1}}
+     sx={{marginRight:1,opacity:open ? 1 : 0.6}}
      />
       Filter
     </button>
+    <Popover
+        id={id}
+        open={open}
+        sx={{top: '42px', left: '-36px'}}
+
+       anchorEl={anchorEl}
+        onClose={handleClose}
+
+      >
+      <div className='filter-card'>
+      <div className='filter-title'>
+      Filter
+      </div>
+      </div>
+      </Popover>
     </div>
     <div className='main-content'>
     {selectedTab === 0 &&  <YourCards/>}

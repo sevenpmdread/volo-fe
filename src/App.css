@@ -220,8 +220,24 @@ body {
   border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 700;
-  opacity: 0.6;
+  opacity: 0.8;
 }
+
+.filter-card {
+width:16em;
+padding:16px 0px;
+border-radius: 12px;
+
+}
+
+.filter-title {
+  border-bottom: 1px solid black;
+  font-size: 1.4rem;
+  font-weight: 600;
+  opacity:0.8;
+  padding:0px 16px;
+}
+
 .Header {
   display:flex;
   flex-direction: row;
