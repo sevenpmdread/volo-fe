@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
 
+import {Route,Routes,Redirect,useParams,Navigate } from 'react-router-dom'
+import Home from './Home';
+import AddIcon from '@mui/icons-material/Add';
+import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
+
+import './app.css'
 function App() {
+  let { page } = useParams();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Header">
+<div className='title-left'>
+       <div className='title'>
+       Virtual cards
+       </div>
+       <button className='video-button'>
+        <VideocamOutlinedIcon
+        sx={{ fontSize: 20,color:'#67a9ff',marginRight:0.5 }}
+        />
+        Learn more
+       </button>
+       </div>
+
+       <button className='createcard-button'>
+        <AddIcon
+        sx={{ fontSize: '1rem',color:'black',marginRight:1 }}
+        />      Virtual Card
+       </button>
+      </div>
+      <Routes path="/">
+      <Route
+        path="*"
+        element={<Navigate to="/home/all" replace />}
+    />
+            <Route  path="/home/:page" element={<Home/>}/>
+      </Routes>
     </div>
   );
 }
