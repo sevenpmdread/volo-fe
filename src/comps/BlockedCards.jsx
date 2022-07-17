@@ -10,14 +10,14 @@ function BlockedCards() {
   const [isFetching, setIsFetching] = useFetch(moreData);
 
   const loadData = () =>{
-    let url = `http://localhost:5000/api/v1/cards/blocked/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/0`;
+    let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/blocked/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/0`;
     axios.post(url,{filter:displayMode.filter}).then(res => {
       console.log(res.data)
       setData(res.data);
     });
   }
   function moreData() {
-    let url = `http://localhost:5000/api/v1/cards/blocked/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${page}`;
+    let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/blocked/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${page}`;
     axios.post(url,{filter:displayMode.filter}).then(res => {
       setData([...data, ...res.data]);
       setPage(page+1)
@@ -27,7 +27,7 @@ function BlockedCards() {
 
   useEffect(()=>{
     loadData()
-  }, [displayMode.filter.active,displayMode.search])
+  }, [displayMode.filter.activ,displayMode.search])
 
   return (
     <ul className={displayMode.grid ? 'list-all-grid' :'list-all-list ' }>

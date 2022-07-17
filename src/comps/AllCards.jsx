@@ -14,7 +14,7 @@ function AllCards() {
   const [isFetching, setIsFetching] = useFetch(moreData);
   console.log("filter",displayMode.filter,displayMode.search)
   const loadData = () =>{
-    let url = `http://localhost:5000/api/v1/cards/get/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/0`;
+    let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/get/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/0`;
     axios.post(url,{filter: displayMode.filter}).then(res => {
       if(res.data.length == 0)
       setnoMatch(true)
@@ -26,7 +26,7 @@ function AllCards() {
   }
   function moreData() {
     console.log("PAge",page)
-    let url = `http://localhost:5000/api/v1/cards/get/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${page}`;
+    let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/get/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${page}`;
     axios.post(url,{filter:displayMode.filter}).then(res => {
       setData([...data, ...res.data]);
       setPage(page+1)

@@ -12,13 +12,13 @@ function YourCards() {
   const [isFetching, setIsFetching] = useFetch(moreData);
 
   const loadData = () =>{
-    let url = `http://localhost:5000/api/v1/cards/yours/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${selectedUser}/0`;
+    let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/yours/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${selectedUser}/0`;
     axios.post(url,{filter:displayMode.filter}).then(res => {
       setData(res.data);
     });
   }
   function moreData() {
-    let url = `http://localhost:5000/api/v1/cards/yours/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${selectedUser}/${page}`;
+    let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/yours/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/${selectedUser}/${page}`;
     axios.post(url,{filter:displayMode.filter}).then(res => {
       setData([...data, ...res.data]);
       setPage(page+1)
@@ -27,7 +27,7 @@ function YourCards() {
   }
 
   const loadUsers = () =>{
-    let url = "http://localhost:5000/api/v1/users/";
+    let url = "https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/users/";
     axios.get(url).then(res => {
       console.log(res.data)
       setUsers([...users,...res.data]);

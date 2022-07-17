@@ -97,7 +97,7 @@ const  Home = (props) => {
   }
 
   const loadUsers = () =>{
-    let url = "http://localhost:5000/api/v1/users/";
+    let url = "https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/users/";
     axios.get(url).then(res => {
       setUsers([...users,...res.data]);
     });
