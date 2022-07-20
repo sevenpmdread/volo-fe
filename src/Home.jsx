@@ -47,7 +47,6 @@ const  Home = (props) => {
 
 
   let { page } = useParams();
-  console.log(page)
 
   const tabNameToIndex = {
     0:"yours",
@@ -61,7 +60,6 @@ const  Home = (props) => {
     blocked:2
   }
 
-  console.log(indexToTabName[page])
 
   const handleInput = (e) => {
     setinputValue(e.target.value)

@@ -14,14 +14,12 @@ const useFetch = callback => {
   }, [isFetching]);
 
   function isScrolling() {
-    console.log(window.innerHeight + document.documentElement.scrollTop, document.documentElement.offsetHeight)
     if (
       window.innerHeight + document.documentElement.scrollTop + 1 >
         document.documentElement.offsetHeight ||
       isFetching
     )
       return;
-    console.log("scroll botom")
     setIsFetching(true);
   }
   return [isFetching, setIsFetching];

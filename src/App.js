@@ -29,9 +29,9 @@ function App() {
        </button>
       </div>
       <Routes path="/">
+      <Route path='*' element={<Navigate to='/about' />} />
       <Route  path="/about" element={<AboutMe/>}/>
-
-            <Route  path="/home/:page" element={<Home/>}/>
+      <Route  path="/home/:page" element={<Home/>}/>
       </Routes>
     </div>
   );

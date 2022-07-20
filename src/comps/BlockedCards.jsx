@@ -12,7 +12,6 @@ function BlockedCards() {
   const loadData = () =>{
     let url = `https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/cards/blocked/${displayMode.search.length ? displayMode.search : 'askdhasdkjashd'}/0`;
     axios.post(url,{filter:displayMode.filter}).then(res => {
-      console.log(res.data)
       setData(res.data);
     });
   }
