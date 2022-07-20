@@ -3,6 +3,7 @@ import {Route,Routes,Redirect,useParams,Navigate } from 'react-router-dom'
 import Home from './Home';
 import AddIcon from '@mui/icons-material/Add';
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
+import AboutMe from './AboutMe';
 import './App.css'
 function App() {
   let { page } = useParams();
@@ -28,10 +29,8 @@ function App() {
        </button>
       </div>
       <Routes path="/">
-      <Route
-        path="*"
-        element={<Navigate to="/home/all" replace />}
-    />
+      <Route  path="/about" element={<AboutMe/>}/>
+
             <Route  path="/home/:page" element={<Home/>}/>
       </Routes>
     </div>

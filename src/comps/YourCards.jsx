@@ -29,7 +29,6 @@ function YourCards() {
   const loadUsers = () =>{
     let url = "https://volo-server-nkxye02vr-sevenpmdread.vercel.app/api/v1/users/";
     axios.get(url).then(res => {
-      console.log(res.data)
       setUsers([...users,...res.data]);
     });
   }
@@ -41,7 +40,6 @@ function YourCards() {
   }, [selectedUser,displayMode.filter.active,displayMode.search])
 
   const handleChange = (event) => {
-    console.log(event)
     setselectedUser(event.target.value)
   }
 
