@@ -4,7 +4,7 @@ import Home from './Home';
 import AddIcon from '@mui/icons-material/Add';
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
 import AboutMe from './AboutMe';
-import './App.css'
+import './app.css'
 function App() {
   let { page } = useParams();
   return (
